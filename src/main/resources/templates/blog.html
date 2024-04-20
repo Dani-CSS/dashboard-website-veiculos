@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Blog</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      box-sizing: border-box;
+      scroll-padding-top: 1rem;
+      scroll-behavior: smooth;
+      list-style: none;
+      text-decoration: none;
+
+    }
+
+    :root {
+      --main-color: #d90429;
+      --text-color: #020102;
+      --bg-color: #fff;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      position: relative;
+      justify-content: space-between;
+      align-items: auto;
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      background-color: rgba(0, 0, 0, 0.815);
+      z-index: 1;
+    }
+
+    #menu {
+      position: absolute;
+      top: 40px;
+      left: 10px;
+      background-color: #0a080891;
+      padding: 10px;
+      border: 0;
+    }
+
+    .logomarca {
+      width: 10%;
+      height: 75%;
+    }
+
+    #menu a {
+      display: block;
+      padding: 8px;
+      text-decoration: none;
+      font-family: "Poppins", sans-serif;
+      color: var(--bg-color);
+    }
+
+    #menu a:hover {
+      color: rgb(228, 127, 127);
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: auto;
+    }
+
+    .navbar ul a {
+      color: white;
+      font-size: 16px;
+    }
+
+    .navbar ul a:hover {
+      color: rgb(228, 127, 127);
+    }
+
+    .container {
+      max-width: 1068px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    .heading {
+      text-align: center;
+    }
+
+    .heading span {
+      font-weight: 500;
+      color: var(--main-color);
+    }
+
+    .heading p {
+      font-size: 0.938rem;
+      font-weight: 300;
+      padding: 9px;
+      text-align: center;
+
+    }
+
+    .blog-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .blog-container .box {
+      flex: 1 1 13rem;
+      padding: 20px;
+    }
+
+    .blog-container .box:hover {
+      background: #f6f6f6;
+    }
+
+    .blog-container .box span {
+      font-size: 0.8rem;
+      color: var(--main-color);
+    }
+
+    .blog-container h3 {
+      font-size: 1.2rem;
+    }
+
+    .blog-container .box p {
+      font-size: 0.938rem;
+      margin: 4px 0;
+      text-align: justify;
+    }
+
+    .blog-container .box .blog-btn {
+      display: flex;
+      align-items: center;
+      column-gap: 4px;
+      color: var(--text-color);
+    }
+
+    .blog-container .box .blog-btn .bx {
+      font-size: 20px;
+    }
+
+    .blog-container .box .blog-btn:hover {
+      color: var(--main-color);
+      column-gap: 0.7rem;
+      transition: 0.4s;
+    }
+
+    .whatsapp-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 500;
+    }
+
+    .whatsapp-icon a {
+      display: block;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-icon a:hover {
+      transform: scale(1.3);
+    }
+
+    .whatsapp-icon img {
+      width: 60px;
+
+    }
+
+    .instagram-icon {
+      display: flex;
+      justify-content: center;
+      gap: 0.01rem;
+      margin: auto;
+      align-items: center;
+    }
+
+    .instagram-icon a {
+      display: block;
+      padding: 10px;
+
+    }
+
+    .instagram-icon a:hover {
+      transform: scale(1.1);
+    }
+
+    .instagram-icon img {
+      width: 20px;
+
+    }
+
+    footer {
+
+      background: var(--text-color);
+      border-top: 2px solid var(--main-color);
+      padding: 1%;
+      bottom: 0;
+      width: 100%;
+      height: 10%;
+      margin: auto;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+      .logomarca {
+        width: 20%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+
+      }
+
+      .navbar {
+        flex-direction: column;
+        background-image: url(img/interior.jpg);
+      }
+
+      .navbar #menu {
+        position: static;
+        display: none;
+        padding: 1%;
+      }
+
+      #menu {
+        text-align: center;
+      }
+
+      #menu a {
+        display: block;
+        padding: 8px;
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        color: var(--bg-color);
+      }
+
+      .navbar ul {
+        margin: 10px 0;
+      }
+
+      .navbar ul a {
+        font-size: 12px;
+      }
+
+      .whatsapp-icon img {
+        width: 40px;
+      }
+
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div id="logo">
+      <img class="logomarca" onmouseover="showMenu()" onmouseout="hideMenu()" src="img/logo1.png">
+    </div>
+
+    <div id="menu" onmouseover="showMenu()" onmouseout="hideMenu()">
+      <a href="patio.html">F&L Veículos</a>
+      <a href="motos.html">F&L Motos</a>
+      <a href="locar.html">LoqCar</a>
+    </div>
+
+    <script>
+      function showMenu() {
+        var menu = document.getElementById("menu");
+        menu.style.display = "block";
+      }
+
+      function hideMenu() {
+        var menu = document.getElementById("menu");
+        menu.style.display = "none";
+      }
+
+      document.getElementById("logomarca").addEventListener("mouseout", hideMenu);
+    </script>
+
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="quemsomos.html">Quem somos</a></li>
+      <li><a href="patio.html">Pátio</a></li>
+      <li><a href="blog.html">Fique por dentro</a></li>
+      <li><a href="https://www.canva.com/design/DAFqZdL1D34/cRb9zQHZBMVuDu98Yq8n4Q/view?utm_content=
+        DAFqZdL1D34&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Contato</a></li>
+    </ul>
+  </nav>
+
+
+
+  <section class="blog" id="blog" style="margin-top: 1%;">
+
+    <div class="heading">
+      <span> Dia a Dia</span>
+      <h2> Blog & Notícias </h2>
+
+      <div class="instagram-icon">
+        <p>Nos siga no Instagram e acompanhe os eventos, novidades e dicas da <span> F&L</span> pra você</p>
+        <a href="https://www.instagram.com/fl_veiculos/" target="_blank" title="Instagram">
+          <img src="img/instagram.png" alt="Instagram">
+        </a>
+      </div>
+    </div>
+
+    <div class="blog-container container">
+      <div class="box">
+        <img src="img/cliente7.jpeg" />
+        <span> 15/02/2024 </span>
+        <h3> Mais uma venda fechada e cliente satisfeito</h3>
+        <p>
+          Agradecemos pela preferência e confiança!
+          Conte Conosco!!!
+        </p>
+
+      </div>
+
+      <div class="blog-container container">
+        <div class="box">
+          <img src="img/cliente1.jpeg" />
+          <span> 05/12/2023</span>
+          <h3> Mais um cliente satisfeito</h3>
+          <p>
+            Você sonha e nós tornamos realidade!!!
+            Conte Conosco!!!
+          </p>
+
+        </div>
+
+        <div class="box">
+          <img src="img/cliente2.jpeg" />
+          <span> 12/10/2023</span>
+          <h3>Sua Jornada começa aqui</h3>
+          <p>
+            Nosso sincero agradecimento pela confiança e preferência, cliente amigo!!!
+          </p>
+
+        </div>
+
+        <div class="blog-container container">
+          <div class="box">
+            <img src="img/cliente5.jpeg" />
+            <span> 15/01/2024</span>
+            <h3> Descomplicando </h3>
+            <p>
+
+              O PRÓXIMO PODE SER VOCÊ!!!
+            </p>
+
+          </div>
+
+          <div class="box">
+            <img src="img/cliente6.jpeg" />
+            <span> 12/12/2023</span>
+            <h3> Entrada Facilitada </h3>
+            <p>
+              Mais entregas realizadas por aqui!!!
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+        <div class="blog-container container">
+          <div class="box">
+            <img src="img/cliente3.jpeg" />
+            <span> 10/01/2024</span>
+            <h3> Mais uma entrega realizada </h3>
+            <p>
+              Mais um cliente satisfeito!!!
+
+
+            </p>
+
+          </div>
+
+          <div class="box">
+            <img src="img/cliente4.jpeg" />
+            <span> 01/12/2023</span>
+            <h3> Conte conosco </h3>
+            <p>
+
+              Agradecemos pela preferência e confiança!
+            </p>
+
+          </div>
+
+
+        </div>
+  </section>
+
+
+
+
+  <div class="whatsapp-icon">
+    <a href="https://api.whatsapp.com/send?phone=5561995088686" target="_blank" title="Fale conosco pelo WhatsApp">
+      <img src="img/w4.png" alt="WhatsApp">
+    </a>
+  </div>
+
+
+  <footer>
+
+    <p>&copy; 2023 Desenvolvido por Daniele Cardoso | Todos os direitos reservados &#174;</p>
+
+  </footer>
+
+</body>
+
+</html>

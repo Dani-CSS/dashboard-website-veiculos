@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    text-decoration: none;
+}
+:root {
+    --main-color: #d90429;
+    --text-color: #020102;
+    --bg-color: #fff;
+}
+.navbar {
+    position: fixed;    
+    justify-content: space-between;
+    align-items: auto;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.158);
+    z-index: 1;
+    
+}
+.navbar ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: auto; 
+    
+}
+a:hover{
+    color: rgb(228, 127, 127);
+}  
+body, html{
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.8em;
+    color:#666;
+    background-color: #0201028a;
+}
+#menu {
+    
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    background-color: #f1f1f11c;
+    padding: 10px;
+    border: 0;
+}
+.logomarca{
+    width: 10%;
+    height: 75%;
+}
+#menu a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    color: var(--bg-color);
+}
+#menu a:hover {
+    color: rgb(228, 127, 127);
+}
+
+
+

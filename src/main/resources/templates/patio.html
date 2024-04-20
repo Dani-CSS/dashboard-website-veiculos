@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Patio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      box-sizing: border-box;
+      scroll-padding-top: 1rem;
+      scroll-behavior: smooth;
+      list-style: none;
+      text-decoration: none;
+
+    }
+
+    :root {
+      --main-color: #d90429;
+      --text-color: #020102;
+      --bg-color: #fff;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      position: relative;
+      justify-content: space-between;
+      align-items: auto;
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      background-color: rgba(0, 0, 0, 0.815);
+      z-index: 1;
+    }
+
+    #menu {
+      position: absolute;
+      top: 40px;
+      left: 10px;
+      background-color: #0a080891;
+      padding: 10px;
+      border: 0;
+    }
+
+    .logomarca {
+      width: 10%;
+      height: 75%;
+    }
+
+    #menu a {
+      display: block;
+      padding: 8px;
+      text-decoration: none;
+      font-family: "Poppins", sans-serif;
+      color: var(--bg-color);
+    }
+
+    #menu a:hover {
+      color: rgb(228, 127, 127);
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: auto;
+    }
+
+    .navbar ul a {
+      color: white;
+      font-size: 16px;
+    }
+
+    .navbar ul a:hover {
+      color: rgb(228, 127, 127);
+    }
+
+    .container {
+      max-width: 1068px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    .home-text {
+      text-align: center;
+
+    }
+
+    .home-text h1 {
+      font-size: 2.4rem;
+      color: var(--main-color);
+
+    }
+
+    .home-text span {
+      color: var(--main-color);
+    }
+
+    .home-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 0.5rem 0 1.2rem;
+    }
+
+    .cars-container .box {
+      flex: 1 1 17rem;
+      position: relative;
+      height: 200px;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin: 10px;
+
+      margin-top: 1rem;
+    }
+
+    .cars-container .box img:hover {
+      transform: scale(1.1);
+      transition: 0.5s;
+    }
+
+    .cars-container .box h2 {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-weight: 400;
+      font-size: 1rem;
+      padding: 8px;
+      border-radius: 00.5rem;
+      background: var(--main-color);
+      color: var(--bg-color);
+    }
+
+    .btn-saiba-mais {
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      /* Ajuste conforme necessário */
+      color: white;
+      transition: background-color 0.4s;
+      border-radius: 00.5rem;
+    }
+
+    .box:hover .btn-saiba-mais {
+      display: block;
+      background: var(--main-color);
+      color: var(--bg-color);
+    }
+
+    .cars-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      max-width: 800px;
+      height: 100%;
+      max-height: 500px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .popup img {
+      max-width: 100%;
+      max-height: 70%;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .popup textarea {
+      width: 100%;
+      height: 20%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      resize: none;
+    }
+
+    .popup-btns {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .popup-btn {
+      padding: 10px;
+      background: var(--main-color);
+      color: var(--bg-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .popup-btn:hover {
+      background-color: #fd052f;
+    }
+
+    .popup-btn-icon {
+      font-size: 1.5rem;
+      margin-right: 5px;
+    }
+
+    .popup-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .popup-close-btn-icon {
+      font-size: 1.5rem;
+      margin-right: 5px;
+    }
+
+    .popup-title {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .whatsapp-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 500;
+    }
+
+    .whatsapp-icon a {
+      display: block;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-icon a:hover {
+      transform: scale(1.3);
+    }
+
+    .whatsapp-icon img {
+      width: 60px;
+    }
+
+    footer {
+      background: var(--text-color);
+      border-top: 2px solid var(--main-color);
+      padding: 1%;
+      width: 100%;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .logomarca {
+        width: 20%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .navbar {
+        flex-direction: column;
+        background-image: url(img/interior.jpg);
+      }
+
+      .navbar #menu {
+        position: static;
+        display: none;
+        padding: 1%;
+      }
+
+      #menu {
+        text-align: center;
+      }
+
+      #menu a {
+        display: block;
+        padding: 8px;
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        color: var(--bg-color);
+      }
+
+      .navbar ul {
+        margin: 10px 0;
+      }
+
+      .navbar ul a {
+        font-size: 12px;
+      }
+
+      .popup {
+        width: 90%;
+      }
+    }
+
+    footer {
+      margin-top: 05%;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div id="logo">
+      <img class="logomarca" onmouseover="showMenu()" onmouseout="hideMenu()" src="img/logo1.png">
+    </div>
+
+    <div id="menu" onmouseover="showMenu()" onmouseout="hideMenu()">
+      <a href="patio.html">F&L Veículos</a>
+      <a href="motos.html">F&L Motos</a>
+      <a href="locar.html">LoqCar</a>
+    </div>
+
+    <script>
+      function showMenu() {
+        var menu = document.getElementById("menu");
+        menu.style.display = "block";
+      }
+
+      function hideMenu() {
+        var menu = document.getElementById("menu");
+        menu.style.display = "none";
+      }
+
+      document.getElementById("logomarca").addEventListener("mouseout", hideMenu);
+    </script>
+
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="quemsomos.html">Quem somos</a></li>
+      <li><a href="patio.html">Pátio</a></li>
+      <li><a href="blog.html">Fique por dentro</a></li>
+      <li><a href="https://www.canva.com/design/DAFqZdL1D34/cRb9zQHZBMVuDu98Yq8n4Q/view?utm_content=
+        DAFqZdL1D34&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Contato</a></li>
+    </ul>
+  </nav>
+
+
+  <section class="home" id="home" style="margin-top: 1%;">
+    <div class="home-text">
+      <h1>
+        Pátio
+      </h1>
+      <p>
+        O carro que você<br />
+        procura <span>está </span> aqui!
+      </p>
+    </div>
+  </section>
+
+  <section class="cars" id="cars">
+    <div class="cars-container container">
+    
+      <div class="box"
+        onclick="openPopup(['img/kwidVinho/2.jpeg', 'img/kwidVinho/3.jpeg', 'img/kwidVinho/4.jpeg', 'img/kwidVinho/5.jpeg', 'img/kwidVinho/6.jpeg', 
+        'img/kwidVinho/7.jpeg', 'img/kwidVinho/8.jpeg'],'Kwid Zen TEMOS NA COR PRETO, PRATA E VERMELHO 0 KM', '🚗 Modelo:1.0 completo\n⭕ Cor: Preto, Prata, Vermelho\n🗓 Ano/ modelo: 2010/2011\n🔑 Cambio: manual\n⛽ Combustível: flex\n')">
+        <img src='img/kwidVinho/1.jpeg' alt="imagem carro" />
+        <h2>Kwid Zen 2024</h2>
+        <button class="btn-saiba-mais">Saiba Mais</button>
+    </div>
+   
+      </div>
+
+  </section>
+
+  <div class="popup" id="popup">
+    <div class="popup-close-btn" onclick="closePopup()">
+      <span class="popup-close-btn-icon">&times;</span>
+    </div>
+    <div class="popup-title" id="popup-title"></div>
+    <img id="popup-img" src="" alt="Carro" />
+    <div class="popup-btns">
+      <button class="popup-btn" onclick="prevImage()">
+        <span class="popup-btn-icon">&lt;</span>
+      </button>
+      <button class="popup-btn" onclick="nextImage()">
+        <span class="popup-btn-icon">&gt;</span>
+      </button>
+    </div>
+    <textarea id="popup-text" placeholder=""></textarea>
+  </div>
+
+
+  <script>
+    function openPopup(imageArray, carModel, description) {
+      const popup = document.getElementById('popup');
+      const popupImg = document.getElementById('popup-img');
+      const popupText = document.getElementById('popup-text');
+      const popupTitle = document.getElementById('popup-title');
+      // Define a imagem e o texto no popup
+      currentImageSet = imageArray;
+      currentImageIndex = 0;
+      popupImg.src = currentImageSet[currentImageIndex];
+      popupText.value = description;
+      popupTitle.innerHTML = carModel;
+      // Exibe o popup
+      popup.style.display = 'block';
+    }
+
+    let currentImageIndex = 0;
+    let currentImageSet = [];
+
+    function closePopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'none';
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % currentImageSet.length;
+      const popupImg = document.getElementById('popup-img');
+      popupImg.src = currentImageSet[currentImageIndex];
+
+      function closePopup() {
+        const popup = document.getElementById('popup');
+        popup.style.display = 'none';
+      }
+
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + currentImageSet.length) % currentImageSet.length;
+      const popupImg = document.getElementById('popup-img');
+      popupImg.src = currentImageSet[currentImageIndex];
+    }
+
+  </script>
+
+  <div class="whatsapp-icon">
+    <a href="https://api.whatsapp.com/send?phone=5561995088686" target="_blank" title="Fale conosco pelo WhatsApp">
+      <img src="img/w4.png" alt="WhatsApp">
+    </a>
+  </div>
+
+
+  <footer>
+
+    <p>&copy; 2023 Desenvolvido por Daniele Cardoso | Todos os direitos reservados &#174;</p>
+
+  </footer>
+
+</body>
+
+</html>
